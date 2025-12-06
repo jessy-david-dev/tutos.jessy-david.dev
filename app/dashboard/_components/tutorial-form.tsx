@@ -14,7 +14,6 @@ import {
     Pencil1Outlined,
     StopwatchOutlined,
 } from "@lineiconshq/free-icons";
-import { Lineicons } from "@lineiconshq/react-lineicons";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 type TutorialFormProps = {
@@ -26,7 +25,7 @@ type TutorialFormProps = {
 
 // Wrapper pour simplifier l'utilisation des icônes LineIcons
 function Icon({
-    icon,
+    icon: IconComponent,
     size = 16,
     className = "",
 }: {
@@ -34,7 +33,7 @@ function Icon({
     size?: number;
     className?: string;
 }) {
-    return <Lineicons icon={icon} size={size} className={className} />;
+    return <IconComponent width={size} height={size} className={className} />;
 }
 
 // Composant pour les labels avec icône
@@ -125,12 +124,12 @@ function FormSection({
 }) {
     return (
         <div
-            className={`relative bg-gradient-to-br from-slate-900/90 to-slate-900/70 
+            className={`relative bg-linear-to-br from-slate-900/90 to-slate-900/70 
                         border border-slate-700/40 rounded-xl overflow-hidden
                         backdrop-blur-md shadow-xl shadow-black/20 ${className}`}
         >
             {/* Effet de brillance en haut */}
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
+            <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-cyan-500/50 to-transparent" />
 
             {/* Header */}
             <div className="flex items-center gap-3 px-6 py-4 border-b border-slate-700/40 bg-slate-800/30">
@@ -348,7 +347,7 @@ export function TutorialForm({
                             </span>
                             <span>Éditer</span>
                             {activeTab === "edit" && (
-                                <span className="absolute bottom-0 inset-x-0 h-0.5 bg-gradient-to-r from-cyan-500 to-cyan-400" />
+                                <span className="absolute bottom-0 inset-x-0 h-0.5 bg-linear-to-r from-cyan-500 to-cyan-400" />
                             )}
                         </button>
                         <button
@@ -371,7 +370,7 @@ export function TutorialForm({
                             </span>
                             <span>Aperçu</span>
                             {activeTab === "preview" && (
-                                <span className="absolute bottom-0 inset-x-0 h-0.5 bg-gradient-to-r from-cyan-500 to-cyan-400" />
+                                <span className="absolute bottom-0 inset-x-0 h-0.5 bg-linear-to-r from-cyan-500 to-cyan-400" />
                             )}
                         </button>
                     </div>
@@ -485,7 +484,8 @@ C'est tout pour ce tutoriel !`}
                                         />
                                     </div>
                                     <p className="text-slate-500 font-mono text-sm">
-                                        Commencez à écrire pour voir l'aperçu...
+                                        Commencez à écrire pour voir
+                                        l&aops;aperçu...
                                     </p>
                                 </div>
                             )}
@@ -499,7 +499,7 @@ C'est tout pour ce tutoriel !`}
                 <button
                     type="submit"
                     className="group relative flex items-center gap-3 px-8 py-3.5 rounded-xl font-mono text-sm
-                               bg-gradient-to-r from-cyan-500/20 to-cyan-600/20 
+                               bg-linear-to-r from-cyan-500/20 to-cyan-600/20 
                                text-cyan-400 border border-cyan-500/40
                                hover:border-cyan-400/70 hover:text-cyan-300 
                                hover:from-cyan-500/30 hover:to-cyan-600/30
@@ -510,7 +510,7 @@ C'est tout pour ce tutoriel !`}
                 >
                     {/* Effet de brillance */}
                     <span className="absolute inset-0 rounded-xl overflow-hidden">
-                        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-400/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                        <span className="absolute inset-0 bg-linear-to-r from-transparent via-cyan-400/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                     </span>
 
                     <span className="relative z-10">
