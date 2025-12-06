@@ -56,7 +56,7 @@ export function DashboardSidebar() {
                                 href={item.href}
                                 className={`group flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                                     active
-                                        ? "bg-cyan-500/10 text-cyan-400 border-l-2 border-cyan-400 ml-[-1px]"
+                                        ? "bg-cyan-500/10 text-cyan-400 border-l-2 border-cyan-400 -ml-px"
                                         : "text-slate-400 hover:text-slate-100 hover:bg-slate-800/50"
                                 }`}
                             >
@@ -82,7 +82,7 @@ export function DashboardSidebar() {
                 {/* Quick action */}
                 <Link
                     href="/dashboard/nouveau"
-                    className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-medium bg-gradient-to-r from-cyan-500/20 to-violet-500/20 text-slate-100 hover:from-cyan-500/30 hover:to-violet-500/30 border border-slate-700/50 hover:border-cyan-500/30 transition-all duration-300"
+                    className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-medium bg-linear-to-r from-cyan-500/20 to-violet-500/20 text-slate-100 hover:from-cyan-500/30 hover:to-violet-500/30 border border-slate-700/50 hover:border-cyan-500/30 transition-all duration-300"
                 >
                     <Lineicons icon={PlusOutlined} size={18} />
                     <span>Créer un tuto</span>
