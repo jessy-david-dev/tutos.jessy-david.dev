@@ -110,9 +110,16 @@ export default async function CategoriesPage() {
     // Compter les tutoriels par catégorie
     const counts = await prisma.tutorial.groupBy({
         by: ["categoryId"],
-        _count: true,
+        _count: {
+            _all: true,
+        },
     });
-    const countMap = new Map(counts.map((c) => [c.categoryId, c._count]));
+    const countMap = new Map(
+        counts.map((c: (typeof counts)[number]) => [
+            c.categoryId,
+            c._count._all,
+        ])
+    );
 
     return (
         <div className="space-y-8">
@@ -208,7 +215,8 @@ export default async function CategoriesPage() {
                 <div className="bg-slate-900/80 border border-slate-700/50 rounded-lg overflow-hidden">
                     <div className="divide-y divide-slate-800/50">
                         {categories.map((cat) => {
-                            const tutorialCount = countMap.get(cat.id) || 0;
+                            const tutorialCount =
+                                (countMap.get(cat.id) as number) || 0;
 
                             return (
                                 <div

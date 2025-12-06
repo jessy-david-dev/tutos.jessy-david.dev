@@ -29,6 +29,9 @@ export default async function EditTutorialPage({ params }: Props) {
         notFound();
     }
 
+    // Capture le slug ici pour l'utiliser dans la Server Action
+    const tutorialSlug = tutorial.slug;
+
     async function handleUpdate(formData: FormData) {
         "use server";
 
@@ -68,7 +71,7 @@ export default async function EditTutorialPage({ params }: Props) {
 
         revalidatePath("/dashboard");
         revalidatePath("/");
-        revalidatePath(`/tutos/${tutorial.slug}`);
+        revalidatePath(`/tutos/${tutorialSlug}`);
         redirect("/dashboard");
     }
 
