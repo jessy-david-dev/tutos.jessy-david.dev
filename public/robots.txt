@@ -1,0 +1,11 @@
+# Robots.txt pour jessy-david.dev
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://jessy-david.dev/sitemap.xml
+
+# Bloquer les ressources inutiles pour le crawl
+Disallow: /api/
+Disallow: /_next/static/

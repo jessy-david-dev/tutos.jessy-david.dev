@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Tutorial {
+  id         String    @id @default(cuid())
+  slug       String    @unique
+  title      String
+  categoryId String
+  category   Category  @relation(fields: [categoryId], references: [id])
+  difficulty String
+  readTime   String?
+  excerpt    String?
+  content    String
+  date       DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+}
+
+model Category {
+  id        String     @id @default(cuid())
+  name      String     @unique
+  slug      String     @unique
+  color     String     @default("#06b6d4") // cyan-500
+  tutorials Tutorial[]
+  createdAt DateTime   @default(now())
+}
